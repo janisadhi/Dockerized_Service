@@ -33,7 +33,7 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-service:latest .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-auth-service:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-service:latest
 
       - name: Deploy to Remote Server
         run: |
