@@ -166,4 +166,4 @@ This project demonstrates deploying a Node.js service using Docker, an EC2 insta
 
 ---
 
-This project is part of [Janis Adhikari's](https://roadmap.sh/projects/server-stats)  DevOps projects.
+This project is part of [Janis Adhikari's](https://roadmap.sh/projects/dockerized-service-deployment)  DevOps projects.
