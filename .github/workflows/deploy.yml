@@ -32,14 +32,14 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-auth-service:latest .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-auth-service:latest
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-service:latest .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-auth-service:latest
 
       - name: Deploy to Remote Server
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-auth-service:latest
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-service:latest
           docker stop nodejs-service || true
           docker rm nodejs-service || true
-          docker run -d --name nodejs-service -p 3000:3000 --env-file /path/to/your/.env ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-auth-service:latest
+          docker run -d --name nodejs-service -p 3000:3000 --env-file .env ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-service:latest
           EOF
