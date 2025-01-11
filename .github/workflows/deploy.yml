@@ -41,5 +41,5 @@ jobs:
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-service:latest
           docker stop nodejs-service || true
           docker rm nodejs-service || true
-          docker run -d --name nodejs-service -p 3000:3000 --env-file .env ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-service:latest
+          docker run -d --name nodejs-service -p 3000:3000  ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-basic-service:latest
           EOF
